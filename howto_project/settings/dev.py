@@ -11,6 +11,17 @@ SECRET_KEY = '!ln0=bd(fyls_iglj7n((9==s3i9h=p#44+bl5inlbiww-95ht'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'howto_project_db',
+        'USER': 'postgres',
+        'PASSWORD': 'testing',
+        'HOST':'127.0.0.1',
+        'PORT':'5432',
+    }
+}
+
 
 try:
     from .local import *
