@@ -5,4 +5,3 @@
 /static/
 /media/
 .env
-howto_project/settings/dev.py
