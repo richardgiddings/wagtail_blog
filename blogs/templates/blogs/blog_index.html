@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load wagtailcore_tags %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blogs/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <h1>{{ page.title }}</h1>
+</header>
+<section>
+    <article>
+        {{ page.intro|richtext }}
+    </article>
+    <article>
+        <h2>Posts</h2>
+        {% for post in page.get_children %}
+            {% with post=post.specific %}
+            <div>
+                <a href ="{% pageurl post %}">
+                    <h3>
+                        {{ post.title }} {{ post.subheading}}
+                    </h3>
+                </a>
+                {{ post.intro|richtext }}
+                {% with categories=post.categories.all %}
+                    {% if categories %}
+                        {% for category in categories %}
+                            <b>{{ category }}</b>
+                        {% endfor %}
+                    {% endif%}
+                {% endwith %}
+            </div>
+            <hr/>
+            {% endwith %}
+        {% endfor %}
+    </article>
+</section>
+{% endblock %}

@@ -1,0 +1,51 @@
+article {
+  padding: 0px 20px 0px 20px;
+  color: #666666;
+  font: 14pt/1.5em Georgia, Times, serif;
+}
+
+header {
+  height: 200px;
+  padding-top: 40px;
+  background-color: #4B698B;
+  color: #ffffff;
+  font: 16pt/1.5em Georgia, Times, serif;
+  text-align: center;
+}
+
+footer {
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+  font: 14pt/1.5em Georgia, Times, serif;
+}
+
+a {
+  text-decoration: none;
+  color: #4B698B;
+}
+a:hover {
+  color: #2B4B6F;
+  cursor: pointer;
+}
+
+.dates {
+  font: 12pt Georgia, Times, serif;
+  padding: 10px;
+  background-color: #A9BBCF;
+  color: #ffffff;
+}
+
+.block-section_heading {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.codehilite {
+  padding: 10px;
+}

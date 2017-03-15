@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load wagtailcore_tags %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'blogs/css/default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'blogs/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <h1>{{ page.title }}</h1>
+    <span>{{ page.subheading }}</span>
+</header>
+<div class="dates">
+    <div>Published: {{ page.first_published_at }} by {% if page.owner.first_name %} {{ page.owner.first_name }} {{ page.owner.last_name }} {% else %} {{ page.owner }} {% endif %}</div>
+    <div>Last updated: {{ page.latest_revision_created_at }}</div>
+</div>
+
+<section>
+    <article>
+        {{ page.body }}
+    </article>
+</section>
+<footer>
+    <hr/>
+    <a href="{{ page.get_parent.url }}">Back to index</a>
+</footer>
+
+{% endblock %}
