@@ -25,7 +25,7 @@
                         {{ post.title }} {{ post.subheading}}
                     </h3>
                 </a>
-                <i>Published: {{ page.first_published_at }} by {% if page.owner.first_name %} {{ page.owner.first_name }} {{ page.owner.last_name }} {% else %} {{ page.owner }} {% endif %}</i>
+                <i>Published: {{ post.first_published_at }} by {% if post.owner.first_name %} {{ post.owner.first_name }} {{ post.owner.last_name }} {% else %} {{ post.owner }} {% endif %}</i>
                 {{ post.intro|richtext }}
                 {% with categories=post.categories.all %}
                     {% if categories %}
