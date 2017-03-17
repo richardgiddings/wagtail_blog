@@ -19,6 +19,8 @@ DATABASES = {
     }
 }
 
+ALLOWED_HOSTS = ['*']
+
 
 try:
     from .local import *

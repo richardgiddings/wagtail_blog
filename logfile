@@ -35,3 +35,7 @@ STATEMENT:  SELECT "wagtailcore_page"."id", "wagtailcore_page"."path", "wagtailc
 LOG:  autovacuum launcher shutting down
 LOG:  received smart shutdown request
 LOG:  shutting down
+LOG:  database system was shut down at 2017-03-15 17:11:53 GMT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started

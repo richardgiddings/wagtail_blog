@@ -14,7 +14,8 @@
     <span>{{ page.subheading }}</span>
 </header>
 <div class="dates">
-    <div>Published: {{ page.first_published_at }} by {% if page.owner.first_name %} {{ page.owner.first_name }} {{ page.owner.last_name }} {% else %} {{ page.owner }} {% endif %}</div>
+    <div>By {% if page.owner.first_name %} {{ page.owner.first_name }} {{ page.owner.last_name }} {% else %} {{ page.owner }} {% endif %}</div>
+    <div>Published: {{ page.first_published_at }}</div>
     <div>Last updated: {{ page.latest_revision_created_at }}</div>
 </div>
 
