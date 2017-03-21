@@ -2,6 +2,7 @@
 
 {% load wagtailcore_tags %}
 {% load static %}
+{% load comments %}
 
 {% block extra_css %}
     <link rel="stylesheet" type="text/css" href="{% static 'blogs/css/style.css' %}">
@@ -16,7 +17,6 @@
         {{ page.intro|richtext }}
     </article>
     <article>
-        <h2>Posts</h2>
         {% for post in page.get_children %}
             {% with post=post.specific %}
             <div>
@@ -33,6 +33,14 @@
                             <b>{{ category }}</b>
                         {% endfor %}
                     {% endif%}
+                    <p>
+                    {% get_comment_count for post as comment_count %}
+                    {% if comment_count %}
+                      <i>{{ comment_count }} comments</i>
+                    {% else %}
+                        <i>No comments yet.</i>
+                    {% endif %}
+                    </p>
                 {% endwith %}
             </div>
             <hr/>

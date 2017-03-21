@@ -2,6 +2,7 @@
 
 {% load wagtailcore_tags %}
 {% load static %}
+{% load comments %}
 
 {% block extra_css %}
 <link rel="stylesheet" type="text/css" href="{% static 'blogs/css/default.css' %}">
@@ -22,6 +23,28 @@
 <section>
     <article>
         {{ page.body }}
+    </article>
+    <article>
+        {% get_comment_count for page as comment_count %}
+        <div class="text-center" style="padding-top:20px">
+          {{ comment_count }} comments have been posted.
+        </div>
+        <hr />
+        <div id="comments" class="comments">
+        {% if COMMENTS_APP == 'django_comments_xtd' %}
+            <div class="comments">
+              {% render_comment_list for self %}
+            </div>
+            <div class="comment">
+              <h4 class="text-center">Your comment</h4>
+              <div class="well">
+                {% render_comment_form for page %}
+              </div>
+            </div>
+        {% else %}
+            No Comments
+        {% endif %}
+        </div>
     </article>
 </section>
 <footer>

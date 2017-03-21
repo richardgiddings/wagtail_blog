@@ -9,7 +9,7 @@ DEBUG = True
 SECRET_KEY = '!ln0=bd(fyls_iglj7n((9==s3i9h=p#44+bl5inlbiww-95ht'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DATABASES = {
     'default': {

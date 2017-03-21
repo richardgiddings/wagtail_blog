@@ -17,6 +17,8 @@ from pygments.lexers import get_lexer_by_name
 from pygments.formatters import get_formatter_by_name
 from django.utils.safestring import mark_safe
 
+COMMENTS_APP = getattr(settings, 'COMMENTS_APP', None)
+
 @register_snippet
 class Category(models.Model):
     name = models.CharField(max_length=25)
@@ -98,3 +100,11 @@ class BlogPost(Page):
         FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         StreamFieldPanel('body'),
     ]
+
+    def get_absolute_url(self):
+        return self.url
+
+    def get_context(self, request, *args, **kwargs):
+        context = super(BlogPost, self).get_context(request, *args, **kwargs)
+        context['COMMENTS_APP'] = COMMENTS_APP
+        return context
