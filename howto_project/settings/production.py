@@ -7,7 +7,7 @@ import os
 env = os.environ.copy()
 SECRET_KEY = env['SECRET_KEY']
 
-DEBUG = False
+DEBUG = True
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
