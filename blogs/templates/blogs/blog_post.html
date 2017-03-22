@@ -27,7 +27,7 @@
     <article>
         {% get_comment_count for page as comment_count %}
         <div class="text-center" style="padding-top:20px">
-          {{ comment_count }} comments have been posted.
+          {{ comment_count }} comment{{ comment_count|pluralize }} {{ comment_count|pluralize:"has,have" }} been posted.
         </div>
         <hr />
         <div id="comments" class="comments">

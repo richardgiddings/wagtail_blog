@@ -36,7 +36,7 @@
                     <p>
                     {% get_comment_count for resource as comment_count %}
                     {% if comment_count %}
-                      <i>{{ comment_count }} comments</i>
+                      <i>{{ comment_count }} comment{{ comment_count|pluralize }}</i>
                     {% else %}
                         <i>No comments yet.</i>
                     {% endif %}
