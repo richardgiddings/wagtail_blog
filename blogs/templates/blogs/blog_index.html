@@ -18,7 +18,7 @@
     </article>
     <article>
         <div class="filters">
-            <a href="{% slugurl 'blog' %}?cat=0"><button type="button">All blogs</button></a>
+            <a href="{% slugurl 'blog' %}?cat=0"><button type="button">All posts</button></a>
             {% for cat in cats %}
                 <a href="{% slugurl 'blog' %}?cat={{ cat.id }}"><button type="button">{{ cat }}</button></a>
             {% endfor %}
