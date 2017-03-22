@@ -12,6 +12,7 @@
 <section>
     <article>
       <h2>{% trans "Preview your comment:" %}</h2>
+      <hr/>
       {% if not comment %}
         <em>{% trans "Empty comment." %}</em>
       {% else %}
@@ -24,6 +25,7 @@
             {% if form.cleaned_data.url %}</a>{% endif %}
         </p>
       {% endif %}
+      <hr/>
       <h2>{% trans "Edit your comment:" %}</h2>
       {% include "comments/form.html" %}
     </article>
