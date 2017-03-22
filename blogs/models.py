@@ -80,9 +80,17 @@ class BlogIndex(Page):
     def get_context(self, request):
         context = super(BlogIndex, self).get_context(request)
 
+        # categories
+        categories = Category.objects.all()
+        cat = request.GET.get('cat')
+
         # Get the full unpaginated listing of resource pages as a queryset -
         # replace this with your own query as appropriate
         all_resources = BlogPost.objects.live()
+
+        # filter by category
+        if cat and int(cat) > 0:
+            all_resources = all_resources.filter(categories__in=cat)
 
         paginator = Paginator(all_resources, 5) # Show 5 resources per page
 
@@ -98,6 +106,7 @@ class BlogIndex(Page):
 
         # make the variable 'resources' available on the template
         context['resources'] = resources
+        context['cats'] = categories
 
         return context
 

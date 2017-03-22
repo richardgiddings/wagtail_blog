@@ -17,6 +17,14 @@
         {{ page.intro|richtext }}
     </article>
     <article>
+        <div class="filters">
+            <a href="{% slugurl 'blog' %}?cat=0"><button type="button">All blogs</button></a>
+            {% for cat in cats %}
+                <a href="{% slugurl 'blog' %}?cat={{ cat.id }}"><button type="button">{{ cat }}</button></a>
+            {% endfor %}
+        </div>
+    </article>    
+    <article>
         {% for resource in resources %}
             <div>
                 <a href ="{% pageurl resource %}">
@@ -30,7 +38,7 @@
                 {% with categories=resource.categories.all %}
                     {% if categories %}
                         {% for category in categories %}
-                            <b>{{ category }}</b>
+                            <a href="{% slugurl 'blog' %}?cat={{ category.id }}"><button type="button">{{ category }}</button></a>
                         {% endfor %}
                     {% endif%}
                     <p>

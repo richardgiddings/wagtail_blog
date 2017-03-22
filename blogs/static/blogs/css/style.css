@@ -26,6 +26,19 @@ img {
   height: auto;
 }
 
+button {
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 8px;
+  background-color: #4B698B;
+  color: #ffffff;
+  border: none;
+}
+button:hover {
+  background-color: #2B4B6F;
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
   color: #4B698B;
@@ -33,6 +46,10 @@ a {
 a:hover {
   color: #2B4B6F;
   cursor: pointer;
+}
+
+.filters {
+  text-align: center;
 }
 
 .pagination li {
