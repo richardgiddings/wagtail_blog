@@ -35,10 +35,6 @@ a:hover {
   cursor: pointer;
 }
 
-.tw-bs {
-    @import "less/bootstrap.less";
-}
-
 .pagination li {
   list-style-type: none;
   display: inline;
