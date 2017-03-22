@@ -17,6 +17,8 @@ from pygments.lexers import get_lexer_by_name
 from pygments.formatters import get_formatter_by_name
 from django.utils.safestring import mark_safe
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 COMMENTS_APP = getattr(settings, 'COMMENTS_APP', None)
 
 @register_snippet
@@ -74,6 +76,30 @@ class BlogIndex(Page):
     content_panels = Page.content_panels + [
         FieldPanel('intro'),
     ]
+
+    def get_context(self, request):
+        context = super(BlogIndex, self).get_context(request)
+
+        # Get the full unpaginated listing of resource pages as a queryset -
+        # replace this with your own query as appropriate
+        all_resources = BlogPost.objects.live()
+
+        paginator = Paginator(all_resources, 5) # Show 5 resources per page
+
+        page = request.GET.get('page')
+        try:
+            resources = paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            resources = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            resources = paginator.page(paginator.num_pages)
+
+        # make the variable 'resources' available on the template
+        context['resources'] = resources
+
+        return context
 
 class BlogPost(Page):
 

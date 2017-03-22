@@ -17,24 +17,23 @@
         {{ page.intro|richtext }}
     </article>
     <article>
-        {% for post in page.get_children %}
-            {% with post=post.specific %}
+        {% for resource in resources %}
             <div>
-                <a href ="{% pageurl post %}">
+                <a href ="{% pageurl resource %}">
                     <h3>
-                        {{ post.title }} {{ post.subheading}}
+                        {{ resource.title }} {{ resource.subheading}}
                     </h3>
                 </a>
-                <i>Published: {{ post.first_published_at }} by {% if post.owner.first_name %} {{ post.owner.first_name }} {{ post.owner.last_name }} {% else %} {{ post.owner }} {% endif %}</i>
-                {{ post.intro|richtext }}
-                {% with categories=post.categories.all %}
+                <i>Published: {{ resource.first_published_at }} by {% if resource.owner.first_name %} {{ resource.owner.first_name }} {{ resource.owner.last_name }} {% else %} {{ resource.owner }} {% endif %}</i>
+                {{ resource.intro|richtext }}
+                {% with categories=resource.categories.all %}
                     {% if categories %}
                         {% for category in categories %}
                             <b>{{ category }}</b>
                         {% endfor %}
                     {% endif%}
                     <p>
-                    {% get_comment_count for post as comment_count %}
+                    {% get_comment_count for resource as comment_count %}
                     {% if comment_count %}
                       <i>{{ comment_count }} comments</i>
                     {% else %}
@@ -44,8 +43,20 @@
                 {% endwith %}
             </div>
             <hr/>
-            {% endwith %}
         {% endfor %}
     </article>
 </section>
+<footer>
+    <ul class="pagination">
+      {% if resources.has_previous %}
+        <li><a href="?page={{ resources.previous_page_number }}"><i class="fa fa-angle-left"></i></a></li>
+      {% endif %}
+      {% for page_num in resources.paginator.page_range %}
+        <li {% if page_num == resources.number %}class="active"{% endif %}><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+      {% endfor %}
+      {% if resources.has_next %}
+      <li><a href="?page={{ resources.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
+      {% endif%}
+    </ul>
+</footer>
 {% endblock %}
