@@ -21,7 +21,8 @@
             <div>
                 <a href ="{% pageurl resource %}">
                     <h3>
-                        {{ resource.title }} {{ resource.subheading}}
+                        {{ resource.title }}<br/>
+                        <small>{{ resource.subheading}}</small>
                     </h3>
                 </a>
                 <i>Published: {{ resource.first_published_at }} by {% if resource.owner.first_name %} {{ resource.owner.first_name }} {{ resource.owner.last_name }} {% else %} {{ resource.owner }} {% endif %}</i>

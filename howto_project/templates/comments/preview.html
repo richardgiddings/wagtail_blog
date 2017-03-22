@@ -27,7 +27,11 @@
       {% endif %}
       <hr/>
       <h2>{% trans "Edit your comment:" %}</h2>
-      {% include "comments/form.html" %}
+      <div class="comment tw-bs">
+        <div class="well">
+          {% include "comments/form.html" %}
+        </div>
+      </div>
     </article>
 </section>
 <footer>
