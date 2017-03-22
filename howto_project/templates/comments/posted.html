@@ -1,14 +1,23 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
+{% load wagtailcore_tags %}
 
-{% block header %}
-<a href="{% url 'homepage' %}">{{ block.super }}</a> -
-<a href="{% url 'blog:post_list' %}">Blog</a>
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'blogs/css/style.css' %}">
 {% endblock %}
 
 {% block content %}
-<h3 class="text-center">{% trans "Comment confirmation requested." %}</h3>
-<p>{% blocktrans %}A confirmation message has been sent to your
-email address. Please, click on the link in the message to confirm
-your comment.{% endblocktrans %}</p>
+<section>
+    <article>
+        <h3 class="text-center">{% trans "Comment confirmation requested." %}</h3>
+        <p>{% blocktrans %}A confirmation message has been sent to your
+        email address. Please, click on the link in the message to confirm
+        your comment.{% endblocktrans %}</p>
+    </article>
+</section>
+<footer>
+    <hr/>
+    <a href="{% slugurl 'blog' %}">Back to index</a>
+</footer>
 {% endblock %}
