@@ -85,7 +85,7 @@ a:hover {
 
 .codehilite {
   padding: 10px;
-  overflow-x:scroll;
+  overflow-x:auto;
 }
 
 .block-code {
