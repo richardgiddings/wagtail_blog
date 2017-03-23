@@ -53,6 +53,7 @@ a:hover {
 .active a {
   /* for page navigation */
   color: #2B4B6F;
+  text-decoration: underline;
 }
 
 .filters {
