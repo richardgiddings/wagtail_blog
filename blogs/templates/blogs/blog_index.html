@@ -18,13 +18,14 @@
     </article>
     <article>
         <div class="filters">
-            <a href="{% slugurl 'blog' %}?cat=0"><button type="button">All posts</button></a>
+            <a href="{% slugurl 'blog' %}?cat=0"><button type="button" {% if selected == 0 %}class='selected'{% endif %}>All posts</button></a>
             {% for cat in cats %}
-                <a href="{% slugurl 'blog' %}?cat={{ cat.id }}"><button type="button">{{ cat }}</button></a>
+                <a href="{% slugurl 'blog' %}?cat={{ cat.id }}"><button type="button" {% if selected == cat.id %}class='selected'{% endif %}>{{ cat }}</button></a>
             {% endfor %}
         </div>
     </article>    
     <article>
+        <h2>{{ cat.id }}</h2>
         {% for resource in resources %}
             <div>
                 <a href ="{% pageurl resource %}">

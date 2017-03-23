@@ -38,6 +38,9 @@ button:hover {
   background-color: #2B4B6F;
   cursor: pointer;
 }
+.selected {
+  background-color: #2B4B6F;
+}
 
 a {
   text-decoration: none;
@@ -46,6 +49,10 @@ a {
 a:hover {
   color: #2B4B6F;
   cursor: pointer;
+}
+.active a {
+  /* for page navigation */
+  color: #2B4B6F;
 }
 
 .filters {

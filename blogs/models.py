@@ -104,9 +104,13 @@ class BlogIndex(Page):
             # If page is out of range (e.g. 9999), deliver last page of results.
             resources = paginator.page(paginator.num_pages)
 
-        # make the variable 'resources' available on the template
+        # make variablesavailable on the template
         context['resources'] = resources
         context['cats'] = categories
+
+        if cat is None:
+            cat = 0
+        context['selected'] = int(cat)
 
         return context
 
