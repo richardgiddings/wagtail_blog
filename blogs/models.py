@@ -131,6 +131,7 @@ class BlogPost(Page):
         ('paragraph', blocks.RichTextBlock()),
         ('image', ImageChooserBlock()),
         ('code', CodeBlock()),
+        ('html', blocks.RawHTMLBlock()),
     ])
 
     content_panels = Page.content_panels + [
