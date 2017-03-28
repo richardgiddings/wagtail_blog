@@ -86,7 +86,7 @@ class BlogIndex(Page):
 
         # Get the full unpaginated listing of resource pages as a queryset -
         # replace this with your own query as appropriate
-        all_resources = BlogPost.objects.live()
+        all_resources = BlogPost.objects.live().child_of(self)
 
         # filter by category
         if cat and int(cat) > 0:
