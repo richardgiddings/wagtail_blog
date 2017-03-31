@@ -83,6 +83,8 @@ class BlogIndex(Page):
         # categories
         categories = Category.objects.all()
         cat = request.GET.get('cat')
+        if cat and not cat.isdigit():
+            cat = 0
 
         # Get the full unpaginated listing of resource pages as a queryset -
         # replace this with your own query as appropriate
