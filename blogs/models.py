@@ -94,6 +94,8 @@ class BlogIndex(Page):
         if cat and int(cat) > 0:
             all_resources = all_resources.filter(categories__in=cat)
 
+        all_resources = all_resources.order_by('-first_published_at')
+
         paginator = Paginator(all_resources, 5) # Show 5 resources per page
 
         page = request.GET.get('page')
