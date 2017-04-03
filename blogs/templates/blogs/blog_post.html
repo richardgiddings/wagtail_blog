@@ -24,6 +24,7 @@
     <article>
         {{ page.body }}
     </article>
+    {% if page.get_depth == 3 %}
     <article>
         {% get_comment_count for page as comment_count %}
         <div class="text-center" style="padding-top:20px">
@@ -45,6 +46,7 @@
         {% endif %}
         </div>
     </article>
+    {% endif %}
 </section>
 <footer>
     <hr/>
