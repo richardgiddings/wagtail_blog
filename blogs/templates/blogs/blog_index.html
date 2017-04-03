@@ -25,7 +25,6 @@
         </div>
     </article>    
     <article>
-        <h2>{{ cat.id }}</h2>
         {% for resource in resources %}
             <div>
                 <a href ="{% pageurl resource %}">
@@ -41,7 +40,7 @@
                         {% for category in categories %}
                             <a href="{% slugurl 'blog' %}?cat={{ category.id }}"><button type="button">{{ category }}</button></a>
                         {% endfor %}
-                    {% endif%}
+                    {% endif %}
                     <p>
                     {% get_comment_count for resource as comment_count %}
                     {% if comment_count %}
