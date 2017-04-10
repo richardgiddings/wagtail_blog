@@ -66,12 +66,10 @@ a:hover {
   padding-right: 10px;
 }
 
-.dates {
-  font: 12pt Georgia, Times, serif;
-  line-height: 1.5em;
-  padding: 10px;
-  background-color: #A9BBCF;
-  color: #ffffff;
+.post_title {
+  font-size: 1.8em;
+  font-weight: bold;
+  line-height: 1.2em;
 }
 
 .block-section_heading {

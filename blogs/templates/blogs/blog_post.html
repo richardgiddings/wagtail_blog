@@ -10,17 +10,27 @@
 {% endblock %}
 
 {% block content %}
+<a href="{% slugurl 'blog' %}">
 <header>
-    <h1>{{ page.title }}</h1>
-    <span>{{ page.subheading }}</span>
+    <h1>{{ page.get_root.get_last_child.title }}</h1>
 </header>
-<div class="dates">
-    <div>By {% if page.owner.first_name %} {{ page.owner.first_name }} {{ page.owner.last_name }} {% else %} {{ page.owner }} {% endif %}</div>
-    <div>Published: {{ page.first_published_at }}</div>
-    <div>Last updated: {{ page.latest_revision_created_at }}</div>
-</div>
+</a>
 
 <section>
+    <article>
+        <p class="post_title">
+            {{ page.title }}<br/> 
+            <small>{{ page.subheading }}</small>
+        </p>
+        <p>
+            By {% if page.owner.first_name %} {{ page.owner.first_name }} {{ page.owner.last_name }} {% else %} {{ page.owner }} {% endif %}
+        </p>
+        <p>
+            <i class="fa fa-clock-o" aria-hidden="true"></i> {{ page.first_published_at|date:"d F Y" }} | {% for category in page.categories.all %} {{ category.name }}&nbsp;{% endfor %}<br/>
+            Last updated: {{ page.latest_revision_created_at }}
+        </p>
+        <hr/>
+    </article>
     <article>
         {{ page.body }}
     </article>
