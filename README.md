@@ -10,19 +10,19 @@ This blog features:
 and is setup to deploy to Heroku, with a postgres database.
 
 The following environment variables need to be added for Amazon S3 storage:
-AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY
-AWS_STORAGE_BUCKET_NAME
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- AWS_STORAGE_BUCKET_NAME
 
 To specify the settings file to use:
-DJANGO_SETTINGS_MODULE - set as howto_project.settings.production
+- DJANGO_SETTINGS_MODULE - set as howto_project.settings.production
 
 For email functionality:
-DEFAULT_FROM_EMAIL
-EMAIL_HOST
-EMAIL_HOST_PASSWORD
-EMAIL_HOST_USER
-EMAIL_PORT
+- DEFAULT_FROM_EMAIL
+- EMAIL_HOST
+- EMAIL_HOST_PASSWORD
+- EMAIL_HOST_USER
+- EMAIL_PORT
 
 And finally:
-SECRET_KEY
+- SECRET_KEY
