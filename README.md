@@ -6,6 +6,7 @@ This blog features:
 - The use of Amazon S3 for hosting images
 - The use of django-comments-xtd for comments on each post
 - Pagination using django.core.paginator
+- http://pygments.org/ is used for code formatting
 
 and is setup to deploy to Heroku, with a postgres database.
 
