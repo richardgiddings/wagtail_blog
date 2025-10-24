@@ -1,6 +1,6 @@
 # README #
 
-The code for a blog built using Wagtail located at https://blog.richardgiddings.co.uk/
+The code for a blog built using Wagtail.
 
 This blog features:
 - The use of Amazon S3 for hosting images
